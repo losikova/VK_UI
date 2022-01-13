@@ -21,7 +21,9 @@ class LoginViewController: UIViewController {
         // Проверяем, верны ли они
         if login == "admin" && password == "123456" {
             print("успешная авторизация")
+            performSegue(withIdentifier: "toTabbar", sender: nil)
         } else {
+            loginError()
             print("неуспешная авторизация")
         }
     }
@@ -35,6 +37,14 @@ class LoginViewController: UIViewController {
     
     @objc func tapFunction() {
         self.view.endEditing(true)
+    }
+    
+    func loginError() {
+        let alert = UIAlertController(title: "Ошибка", message: "Логин или пароль введены неверно", preferredStyle: .alert)
+        let action = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
+        
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
     
 
