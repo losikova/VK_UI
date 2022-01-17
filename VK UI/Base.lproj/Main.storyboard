@@ -253,15 +253,6 @@
                         <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="20L-o7-W5x">
                             <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <items>
-                                <navigationItem id="8qd-Up-4bq">
-                                    <barButtonItem key="rightBarButtonItem" title="Поиск" id="2wy-B1-V2s">
-                                        <connections>
-                                            <segue destination="Ubw-b2-Q0z" kind="show" id="Lex-tQ-6DI"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </navigationItem>
-                            </items>
                         </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="dxz-Mb-91r">
@@ -279,7 +270,11 @@
                         </connections>
                     </tableView>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Мои группы" id="AAn-pf-T5s"/>
+                    <navigationItem key="navigationItem" title="Мои группы" id="AAn-pf-T5s">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="7Ph-Gl-LX4">
+                            <color key="tintColor" systemColor="labelColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fdq-cq-JB2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -319,6 +314,10 @@
     <resources>
         <image name="eye.slash" catalog="system" width="128" height="86"/>
         <image name="logo" width="192" height="192"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
