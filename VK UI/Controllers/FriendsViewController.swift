@@ -10,7 +10,7 @@ import UIKit
 class FriendsViewController: UIViewController {
 
     @IBOutlet weak var friendsTableView: UITableView!
-    let reusableIdentifierFriends = "FriendCell"
+    let reusableIdentifierFriends = "reusableIdentifierFriends"
     var friendsArray = [User]()
     
     let friendsNames = [
