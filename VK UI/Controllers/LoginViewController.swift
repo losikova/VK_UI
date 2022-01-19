@@ -82,8 +82,8 @@ private extension LoginViewController {
     }
     
     func loginError() {
-        let alert = UIAlertController(title: "Ошибка", message: "Логин или пароль введены неверно", preferredStyle: .alert)
-        let action = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
+        let alert = UIAlertController(title: "Error", message: "Login or password entered incorrectly", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
@@ -94,8 +94,8 @@ private extension LoginViewController {
         loginView.layer.borderWidth = 1
         loginView.layer.borderColor = UIColor(red: 0.23, green: 0.24, blue: 0.24, alpha: 1.00).cgColor
         
-        loginInput.attributedPlaceholder = NSAttributedString(string: "Email или телефон", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.45, green: 0.46, blue: 0.47, alpha: 1.00)])
-        passwordInput.attributedPlaceholder = NSAttributedString(string: "Пароль", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.45, green: 0.46, blue: 0.47, alpha: 1.00)])
+        loginInput.attributedPlaceholder = NSAttributedString(string: "Phone or email", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.45, green: 0.46, blue: 0.47, alpha: 1.00)])
+        passwordInput.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor(red: 0.45, green: 0.46, blue: 0.47, alpha: 1.00)])
         
         loginButton.layer.cornerRadius = 10
         loginButton.isEnabled = false
