@@ -48,7 +48,7 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = allGroupsTableView.dequeueReusableCell(withIdentifier: reuseIdentifierGroups) as! FriendsTableViewCell
-        cell.avatarImageView.layer.cornerRadius = 30
+        cell.avatarImageView.layer.cornerRadius = 25
         cell.configure(group: groupArray[indexPath.row])
         return cell
     }
