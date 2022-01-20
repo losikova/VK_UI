@@ -12,6 +12,7 @@ class FriendsViewController: UIViewController {
     @IBOutlet weak var friendsTableView: UITableView!
     let reusableIdentifierFriends = "reusableIdentifierFriends"
     var friendsArray = [User]()
+    let friendsCellPressedSegue = "friendsCellPressed"
     
     let friendsNames = [
         "Adele",
@@ -34,7 +35,7 @@ class FriendsViewController: UIViewController {
     
     func fillFriendsArray() {
         for name in friendsNames {
-            let friend = User(name: name, avatar: UIImage(named: name)!)
+            let friend = User(name: name, avatar: UIImage(named: name)!, photos: [UIImage(named: name)!])
             friendsArray.append(friend)
         }
     }
@@ -48,7 +49,14 @@ class FriendsViewController: UIViewController {
         friendsTableView.delegate = self
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == friendsCellPressedSegue,
+           let galleryViewController = segue.destination as? GalleryViewController,
+           let friend = sender as? User {
+            galleryViewController.photos = friend.photos
+        }
+    }
+    
 }
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -63,4 +71,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: friendsCellPressedSegue, sender: friendsArray[indexPath.row])
+    }
 }

@@ -14,6 +14,8 @@ class GalleryViewController: UIViewController {
     
     let reuserIdentifierGallery = "reuserIdentifierGallery"
     
+    var photos = [UIImage]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,12 +28,12 @@ class GalleryViewController: UIViewController {
 
 extension GalleryViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 100
+        return photos.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = galleryCollectionView.dequeueReusableCell(withReuseIdentifier: reuserIdentifierGallery, for: indexPath) as! GalleryCollectionViewCell
-        cell.photoImageView.image = UIImage(named: "Adele")
+        cell.photoImageView.image = photos[indexPath.item]
         return cell
     }
     

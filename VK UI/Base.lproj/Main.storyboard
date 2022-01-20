@@ -125,6 +125,7 @@
         <scene sceneID="rUI-k2-lhw">
             <objects>
                 <tabBarController id="J1k-c3-dbw" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1Is-P2-8H1"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="x08-Jv-Hp5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -152,6 +153,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yNS-v5-EpH">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="AIw-jR-MIP" kind="relationship" relationship="rootViewController" id="l9Z-ix-XGE"/>
                     </connections>
