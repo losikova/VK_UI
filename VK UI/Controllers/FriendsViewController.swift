@@ -15,27 +15,27 @@ class FriendsViewController: UIViewController {
     let friendsCellPressedSegue = "friendsCellPressed"
     
     let friendsNames = [
-        "Adele",
-        "Cate Blanchett",
-        "Damiano David",
-        "Emily Blunt",
-        "Helena Bonham Carter",
-        "Johnny Depp",
-        "Keanu Reeves",
-        "Lady Gaga",
-        "Lana Parilla",
-        "Meryl Streep",
-        "Rihanna",
-        "Robert Downey Jr",
-        "Ryan Reynolds",
-        "Sara Ramírez",
-        "Sarah Paulson",
-        "Timothée Chalamet"
+        "Adele": [UIImage(named: "Adele")!, UIImage(named: "Adele")!],
+        "Cate Blanchett": [UIImage(named: "Cate Blanchett")!, UIImage(named: "Cate Blanchett")!],
+        "Damiano David": [UIImage(named: "Damiano David")!, UIImage(named: "Damiano David")!],
+        "Emily Blunt": [UIImage(named: "Emily Blunt")!, UIImage(named: "Emily Blunt")!],
+        "Helena Bonham Carter": [UIImage(named: "Helena Bonham Carter")!, UIImage(named: "Helena Bonham Carter")!],
+        "Johnny Depp": [UIImage(named: "Johnny Depp")!, UIImage(named: "Johnny Depp")!],
+        "Keanu Reeves": [UIImage(named: "Keanu Reeves")!, UIImage(named: "Keanu Reeves")!],
+        "Lady Gaga": [UIImage(named: "Lady Gaga")!, UIImage(named: "Lady Gaga")!],
+        "Lana Parilla": [UIImage(named: "Lana Parilla")!, UIImage(named: "Lana Parilla")!],
+        "Meryl Streep": [UIImage(named: "Meryl Streep")!, UIImage(named: "Meryl Streep")!],
+        "Rihanna": [UIImage(named: "Rihanna")!, UIImage(named: "Rihanna")!],
+        "Robert Downey Jr": [UIImage(named: "Robert Downey Jr")!, UIImage(named: "Robert Downey Jr")!],
+        "Ryan Reynolds": [UIImage(named: "Ryan Reynolds")!, UIImage(named: "Ryan Reynolds")!],
+        "Sara Ramírez": [UIImage(named: "Sara Ramírez")!, UIImage(named: "Sara Ramírez")!],
+        "Sarah Paulson": [UIImage(named: "Sarah Paulson")!, UIImage(named: "Sarah Paulson")!],
+        "Timothée Chalamet": [UIImage(named: "Timothée Chalamet")!, UIImage(named: "Timothée Chalamet")!]
     ]
     
     func fillFriendsArray() {
-        for name in friendsNames {
-            let friend = User(name: name, avatar: UIImage(named: name)!, photos: [UIImage(named: name)!])
+        for (name, photos) in friendsNames {
+            let friend = User(name: name, avatar: UIImage(named: name)!, photos: photos)
             friendsArray.append(friend)
         }
     }
