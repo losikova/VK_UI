@@ -13,6 +13,8 @@ class AllGroupsViewController: UIViewController {
     
     let reuseIdentifierGroups = "reuseIdentifierGroups"
     var groupArray = [Group]()
+    var selectedGroup: Group?
+    
     let groupsNames = [
         "Doggy",
         "пакетик брать будете?",
@@ -35,6 +37,8 @@ class AllGroupsViewController: UIViewController {
         allGroupsTableView.dataSource = self
     }
     
+    
+    
 }
 
 extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -47,6 +51,11 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.avatarImageView.layer.cornerRadius = 30
         cell.configure(group: groupArray[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedGroup = groupArray[indexPath.row]
+        performSegue(withIdentifier: "addGroup", sender: nil)
     }
     
 }

@@ -287,9 +287,11 @@
                     <navigationItem key="navigationItem" title="Groups" id="7SC-Wa-UVz"/>
                     <connections>
                         <outlet property="allGroupsTableView" destination="48H-qP-t6W" id="Hwh-Eo-FEx"/>
+                        <segue destination="UEn-o4-lpt" kind="unwind" identifier="addGroup" unwindAction="unwindAddGroupWithSegue:" id="aSu-Su-qBX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIi-wv-vPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="UEn-o4-lpt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3765" y="478"/>
         </scene>

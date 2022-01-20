@@ -14,32 +14,32 @@ class UserGroupsViewController: UIViewController {
     
     let reuseIdentifierGroups = "reuseIdentifierGroups"
     var groupArray = [Group]()
-    let groupsNames = [
-        "Doggy",
-        "пакетик брать будете?",
-        "quite mooo"
-    ]
-    
-    func fillGroupArray() {
-        for name in groupsNames {
-            let group = Group(name: name, icon: UIImage(named: name)!)
-            groupArray.append(group)
-        }
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fillGroupArray()
+
         userGroupsTableView.register(UINib(nibName: "FriendsTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierGroups)
         userGroupsTableView.rowHeight = 70
         userGroupsTableView.delegate = self
         userGroupsTableView.dataSource = self
     }
     
-    @IBAction func addGroup(segue: UIStoryboardSegue) {
-        
-        
+    func isItemAlreadyInArraay(group: Group) -> Bool {
+        return groupArray.contains{sourceGroup in
+            sourceGroup.name == group.name
         }
+    }
+    
+    @IBAction func unwindAddGroup(segue: UIStoryboardSegue) {
+        if segue.identifier == "addGroup",
+           let allGroupsViewController = segue.source as? AllGroupsViewController,
+           let selectedGroup = allGroupsViewController.selectedGroup as? Group {
+            if isItemAlreadyInArraay(group: selectedGroup) {return}
+            self.groupArray.append(selectedGroup)
+            userGroupsTableView.reloadData()
+        }
+        
+    }
     
 }
 
@@ -50,7 +50,7 @@ extension UserGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = userGroupsTableView.dequeueReusableCell(withIdentifier: reuseIdentifierGroups) as! FriendsTableViewCell
-        cell.avatarImageView.layer.cornerRadius = 30
+//        cell.avatarImageView.layer.cornerRadius = 30
         cell.configure(group: groupArray[indexPath.row])
         return cell
     }
