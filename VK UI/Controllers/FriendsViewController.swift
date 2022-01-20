@@ -10,9 +10,11 @@ import UIKit
 class FriendsViewController: UIViewController {
 
     @IBOutlet weak var friendsTableView: UITableView!
+    
     let reusableIdentifierFriends = "reusableIdentifierFriends"
-    var friendsArray = [User]()
     let friendsCellPressedSegue = "friendsCellPressed"
+    var friendsArray = [User]()
+    var sectionLetters = [String]()
     
     let friendsNames = [
         "Adele": [UIImage(named: "Adele")!, UIImage(named: "Adele")!],
@@ -38,11 +40,15 @@ class FriendsViewController: UIViewController {
             let friend = User(name: name, avatar: UIImage(named: name)!, photos: photos)
             friendsArray.append(friend)
         }
+        friendsArray.sort(by: {$0.name < $1.name})
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         fillFriendsArray()
+        fillSectionLetters()
+        
         friendsTableView.register(UINib(nibName: "FriendsTableViewCell", bundle: nil), forCellReuseIdentifier: reusableIdentifierFriends)
         friendsTableView.rowHeight = 70
         friendsTableView.dataSource = self
@@ -57,21 +63,50 @@ class FriendsViewController: UIViewController {
         }
     }
     
+    func fillSectionLetters() {
+        for friend in friendsArray {
+            let letter = String(friend.name.prefix(1)).uppercased()
+            if !sectionLetters.contains(letter) {
+                sectionLetters.append(letter)
+            }
+        }
+    }
+    
+    func friendsBySection(letter: String) -> [User] {
+        var resultArray = [User]()
+        for friend in friendsArray {
+            if friend.name.prefix(1).uppercased() == letter.uppercased() {
+                resultArray.append(friend)
+            }
+        }
+        return resultArray
+    }
+    
 }
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sectionLetters.count
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friendsArray.count
+        return friendsBySection(letter: sectionLetters[section]).count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = friendsTableView.dequeueReusableCell(withIdentifier: reusableIdentifierFriends, for: indexPath) as! FriendsTableViewCell
         cell.avatarImageView.layer.cornerRadius = 25
-        cell.configure(friend: friendsArray[indexPath.row])
+        cell.configure(friend: friendsBySection(letter: sectionLetters[indexPath.section])[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: friendsCellPressedSegue, sender: friendsArray[indexPath.row])
+        let section = friendsBySection(letter: sectionLetters[indexPath.section])
+        performSegue(withIdentifier: friendsCellPressedSegue, sender: section[indexPath.row])
     }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionLetters[section]
+    }
+    
 }
