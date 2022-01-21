@@ -30,9 +30,9 @@ class FriendsViewController: UIViewController {
         "Rihanna": [UIImage(named: "Rihanna")!, UIImage(named: "Rihanna")!],
         "Robert Downey Jr": [UIImage(named: "Robert Downey Jr")!, UIImage(named: "Robert Downey Jr")!],
         "Ryan Reynolds": [UIImage(named: "Ryan Reynolds")!, UIImage(named: "Ryan Reynolds")!],
-        "Sara Ramírez": [UIImage(named: "Sara Ramírez")!, UIImage(named: "Sara Ramírez")!],
+        "Sara Ramirez": [UIImage(named: "Sara Ramirez")!, UIImage(named: "Sara Ramirez")!],
         "Sarah Paulson": [UIImage(named: "Sarah Paulson")!, UIImage(named: "Sarah Paulson")!],
-        "Timothée Chalamet": [UIImage(named: "Timothée Chalamet")!, UIImage(named: "Timothée Chalamet")!]
+        "Timothee Chalamet": [UIImage(named: "Timothee Chalamet")!, UIImage(named: "Timothee Chalamet")!]
     ]
     
     func fillFriendsArray() {
