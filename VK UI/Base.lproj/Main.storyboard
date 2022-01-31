@@ -272,6 +272,12 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="48H-qP-t6W">
                                 <rect key="frame" x="0.0" y="88" width="390" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <searchBar key="tableHeaderView" contentMode="redraw" id="gsD-4Q-ZoY">
+                                    <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cs0-ki-DIz"/>
@@ -286,13 +292,14 @@
                     <navigationItem key="navigationItem" title="Groups" id="7SC-Wa-UVz"/>
                     <connections>
                         <outlet property="allGroupsTableView" destination="48H-qP-t6W" id="Hwh-Eo-FEx"/>
+                        <outlet property="searchBar" destination="gsD-4Q-ZoY" id="Suh-oK-gI2"/>
                         <segue destination="UEn-o4-lpt" kind="unwind" identifier="addGroup" unwindAction="unwindAddGroupWithSegue:" id="aSu-Su-qBX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HIi-wv-vPD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="UEn-o4-lpt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3765" y="478"/>
+            <point key="canvasLocation" x="3764.6153846153843" y="477.7251184834123"/>
         </scene>
         <!--My groups-->
         <scene sceneID="iYN-s0-K55">
