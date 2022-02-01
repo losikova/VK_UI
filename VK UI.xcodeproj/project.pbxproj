@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B26BE13327A44F9A00C978C9 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B26BE13227A44F9A00C978C9 /* AvatarView.swift */; };
 		B2726AB4279072D5008558D1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2726AB3279072D5008558D1 /* LoginViewController.swift */; };
 		B28A54E02796012B00E69C00 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A54DE2796012B00E69C00 /* FriendsTableViewCell.swift */; };
 		B28A54E12796012B00E69C00 /* FriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28A54DF2796012B00E69C00 /* FriendsTableViewCell.xib */; };
@@ -18,6 +19,9 @@
 		B28A54FA2796153B00E69C00 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A54F92796153B00E69C00 /* GalleryViewController.swift */; };
 		B28A55082798573700E69C00 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A55062798573700E69C00 /* GalleryCollectionViewCell.swift */; };
 		B28A55092798573700E69C00 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28A55072798573700E69C00 /* GalleryCollectionViewCell.xib */; };
+		B2A6636C279DF87700FFADB0 /* FriendsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A6636B279DF87700FFADB0 /* FriendsViewController+Delegate.swift */; };
+		B2A6636E279DF8BE00FFADB0 /* FriendsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A6636D279DF8BE00FFADB0 /* FriendsViewController+DataSource.swift */; };
+		B2A66370279DF8F700FFADB0 /* FriendsViewController+DataFill.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A6636F279DF8F700FFADB0 /* FriendsViewController+DataFill.swift */; };
 		B2DED43927874778008BB8B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DED43827874778008BB8B5 /* AppDelegate.swift */; };
 		B2DED43B27874778008BB8B5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2DED43A27874778008BB8B5 /* SceneDelegate.swift */; };
 		B2DED44027874778008BB8B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B2DED43E27874778008BB8B5 /* Main.storyboard */; };
@@ -26,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B26BE13227A44F9A00C978C9 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		B2726AB3279072D5008558D1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B28A54DE2796012B00E69C00 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		B28A54DF2796012B00E69C00 /* FriendsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsTableViewCell.xib; sourceTree = "<group>"; };
@@ -37,6 +42,9 @@
 		B28A54F92796153B00E69C00 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		B28A55062798573700E69C00 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B28A55072798573700E69C00 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
+		B2A6636B279DF87700FFADB0 /* FriendsViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+Delegate.swift"; sourceTree = "<group>"; };
+		B2A6636D279DF8BE00FFADB0 /* FriendsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+DataSource.swift"; sourceTree = "<group>"; };
+		B2A6636F279DF8F700FFADB0 /* FriendsViewController+DataFill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FriendsViewController+DataFill.swift"; sourceTree = "<group>"; };
 		B2DED43527874778008BB8B5 /* VK UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VK UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2DED43827874778008BB8B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B2DED43A27874778008BB8B5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,11 +65,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B26BE12F27A44F6B00C978C9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B26BE13227A44F9A00C978C9 /* AvatarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B28A54DC2795FFF700E69C00 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B2A6636A279DF84100FFADB0 /* FriendsViewController */,
 				B2726AB3279072D5008558D1 /* LoginViewController.swift */,
-				B28A54F3279614EE00E69C00 /* FriendsViewController.swift */,
 				B28A54F52796151700E69C00 /* UserGroupsViewController.swift */,
 				B28A54F72796152D00E69C00 /* AllGroupsViewController.swift */,
 				B28A54F92796153B00E69C00 /* GalleryViewController.swift */,
@@ -89,6 +105,17 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		B2A6636A279DF84100FFADB0 /* FriendsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B28A54F3279614EE00E69C00 /* FriendsViewController.swift */,
+				B2A6636F279DF8F700FFADB0 /* FriendsViewController+DataFill.swift */,
+				B2A6636D279DF8BE00FFADB0 /* FriendsViewController+DataSource.swift */,
+				B2A6636B279DF87700FFADB0 /* FriendsViewController+Delegate.swift */,
+			);
+			path = FriendsViewController;
+			sourceTree = "<group>";
+		};
 		B2DED42C27874778008BB8B5 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +135,7 @@
 		B2DED43727874778008BB8B5 /* VK UI */ = {
 			isa = PBXGroup;
 			children = (
+				B26BE12F27A44F6B00C978C9 /* View */,
 				B28A54EE2796124800E69C00 /* Model */,
 				B28A54DC2795FFF700E69C00 /* Controllers */,
 				B28A54FB27984BBB00E69C00 /* Cells */,
@@ -195,15 +223,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2726AB4279072D5008558D1 /* LoginViewController.swift in Sources */,
+				B2A6636C279DF87700FFADB0 /* FriendsViewController+Delegate.swift in Sources */,
 				B28A55082798573700E69C00 /* GalleryCollectionViewCell.swift in Sources */,
 				B2DED43927874778008BB8B5 /* AppDelegate.swift in Sources */,
 				B28A54F22796128900E69C00 /* Group.swift in Sources */,
 				B2DED43B27874778008BB8B5 /* SceneDelegate.swift in Sources */,
+				B2A66370279DF8F700FFADB0 /* FriendsViewController+DataFill.swift in Sources */,
 				B28A54F82796152D00E69C00 /* AllGroupsViewController.swift in Sources */,
 				B28A54F4279614EE00E69C00 /* FriendsViewController.swift in Sources */,
 				B28A54E02796012B00E69C00 /* FriendsTableViewCell.swift in Sources */,
 				B28A54FA2796153B00E69C00 /* GalleryViewController.swift in Sources */,
+				B2A6636E279DF8BE00FFADB0 /* FriendsViewController+DataSource.swift in Sources */,
 				B28A54F02796127A00E69C00 /* User.swift in Sources */,
+				B26BE13327A44F9A00C978C9 /* AvatarView.swift in Sources */,
 				B28A54F62796151700E69C00 /* UserGroupsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +391,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -387,6 +420,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

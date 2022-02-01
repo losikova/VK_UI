@@ -42,6 +42,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="avatarImageView" destination="bAM-zW-OFF" id="USu-xw-WmH"/>
+                <outlet property="friendsTableViewCell" destination="H2p-sc-9uM" id="vbT-xK-ggo"/>
                 <outlet property="nameLabel" destination="8Hy-bz-zIy" id="S42-HT-m1g"/>
             </connections>
             <point key="canvasLocation" x="179.71014492753625" y="118.52678571428571"/>
