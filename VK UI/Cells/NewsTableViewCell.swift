@@ -20,9 +20,9 @@ class NewsTableViewCell: UITableViewCell {
         return photo
     }()
     var bottomView = UIView()
-    var shareLabel = UILabel()
+//    var shareLabel = UILabel()
     
-    var photosArray = [UIImage]()
+//    var photosArray = [UIImage]()
     
     override func layoutIfNeeded() {
         super.layoutIfNeeded()
@@ -74,10 +74,10 @@ class NewsTableViewCell: UITableViewCell {
             bottomView.heightAnchor.constraint(equalTo: self.widthAnchor)
         ])
         bottomView.clipsToBounds = true
+        bottomView.isUserInteractionEnabled = true
         
         let likesView = LikesView(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
         bottomView.addSubview(likesView)
-        
         
     }
 

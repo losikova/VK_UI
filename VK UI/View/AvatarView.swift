@@ -25,6 +25,12 @@ class AvatarView: UIView {
         return label
     }()
     
+    init(photo: UIImageView){
+        super.init(frame: .zero)
+        self.photo = photo
+        setup()
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
