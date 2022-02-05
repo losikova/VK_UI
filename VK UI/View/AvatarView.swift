@@ -9,30 +9,14 @@ import UIKit
 
 class AvatarView: UIView {
     
-    var photo: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "Adele")
-        return image
-    }()
-    var name: UILabel = {
-        let label = UILabel()
-        label.text = "Adele"
-        return label
-    }()
-    var date: UILabel = {
-        let label = UILabel()
-        label.text = "вчера 16:15"
-        return label
-    }()
+    private var photo = UIImageView()
+    var name = UILabel()
+    var date = UILabel()
     
-    init(photo: UIImageView){
-        super.init(frame: .zero)
-        self.photo = photo
-        setup()
-    }
-    
-    override init(frame: CGRect) {
+    init(frame: CGRect, name: String, date: String){
         super.init(frame: frame)
+        self.name.text = name
+        self.date.text = date
         setup()
     }
     
@@ -41,11 +25,17 @@ class AvatarView: UIView {
         setup()
     }
     
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        setup()
+    }
+    
     func setup() {
         self.addSubview(photo)
         self.addSubview(name)
         self.addSubview(date)
         
+        photo.image = UIImage(named: name.text!)
         photo.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             photo.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
@@ -64,7 +54,6 @@ class AvatarView: UIView {
             name.leftAnchor.constraint(equalTo: photo.rightAnchor, constant: 16),
             name.bottomAnchor.constraint(equalTo: date.topAnchor, constant: -8)
         ])
-        name.backgroundColor = .red
         name.clipsToBounds = true
         
         date.translatesAutoresizingMaskIntoConstraints = false
@@ -73,10 +62,6 @@ class AvatarView: UIView {
             date.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
             date.leftAnchor.constraint(equalTo: photo.rightAnchor, constant: 16)
         ])
-        date.backgroundColor = .yellow
         date.clipsToBounds = true
-        
-        self.backgroundColor = .cyan
-        
     }
 }

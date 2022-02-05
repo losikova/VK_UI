@@ -12,7 +12,7 @@
 		B27F163927A8686B0003BBB0 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F163827A8686A0003BBB0 /* UserSettings.swift */; };
 		B27F163B27A86B100003BBB0 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F163A27A86B100003BBB0 /* NewsViewController.swift */; };
 		B27F163D27A86FE00003BBB0 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F163C27A86FE00003BBB0 /* NewsTableViewCell.swift */; };
-		B27F163F27A8726F0003BBB0 /* LikesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F163E27A8726F0003BBB0 /* LikesView.swift */; };
+		B27F163F27A8726F0003BBB0 /* BottomItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27F163E27A8726F0003BBB0 /* BottomItemView.swift */; };
 		B27F164527A880AF0003BBB0 /* GalleryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B27F164327A880AF0003BBB0 /* GalleryCollectionViewCell.xib */; };
 		B28A54E02796012B00E69C00 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28A54DE2796012B00E69C00 /* FriendsTableViewCell.swift */; };
 		B28A54E12796012B00E69C00 /* FriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B28A54DF2796012B00E69C00 /* FriendsTableViewCell.xib */; };
@@ -39,7 +39,7 @@
 		B27F163827A8686A0003BBB0 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		B27F163A27A86B100003BBB0 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
 		B27F163C27A86FE00003BBB0 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
-		B27F163E27A8726F0003BBB0 /* LikesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesView.swift; sourceTree = "<group>"; };
+		B27F163E27A8726F0003BBB0 /* BottomItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomItemView.swift; sourceTree = "<group>"; };
 		B27F164327A880AF0003BBB0 /* GalleryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryCollectionViewCell.xib; sourceTree = "<group>"; };
 		B28A54DE2796012B00E69C00 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		B28A54DF2796012B00E69C00 /* FriendsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsTableViewCell.xib; sourceTree = "<group>"; };
@@ -77,7 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				B26BE13227A44F9A00C978C9 /* AvatarView.swift */,
-				B27F163E27A8726F0003BBB0 /* LikesView.swift */,
+				B27F163E27A8726F0003BBB0 /* BottomItemView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -235,7 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B2726AB4279072D5008558D1 /* LoginViewController.swift in Sources */,
-				B27F163F27A8726F0003BBB0 /* LikesView.swift in Sources */,
+				B27F163F27A8726F0003BBB0 /* BottomItemView.swift in Sources */,
 				B2A6636C279DF87700FFADB0 /* FriendsViewController+Delegate.swift in Sources */,
 				B28A55082798573700E69C00 /* GalleryCollectionViewCell.swift in Sources */,
 				B2DED43927874778008BB8B5 /* AppDelegate.swift in Sources */,
