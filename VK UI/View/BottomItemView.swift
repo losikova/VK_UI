@@ -11,12 +11,14 @@ enum bottomViewItem {
     case like
     case comment
     case share
+    case views
 }
 
 enum yPosition {
     case first
     case second
     case third
+    case fourth
 }
 
 class BottomItemView: UIView {
@@ -37,6 +39,8 @@ class BottomItemView: UIView {
             super.init(frame: CGRect(x: 60, y: 0, width: 40, height: 20))
         case .third:
             super.init(frame: CGRect(x: 120, y: 0, width: 40, height: 20))
+        case .fourth:
+            super.init(frame: CGRect(x: 350, y: 0, width: 40, height: 20))
         }
         
         setup()
@@ -62,6 +66,9 @@ class BottomItemView: UIView {
         case .share:
             itemButton.setImage(UIImage(systemName: "arrowshape.turn.up.right"), for: .normal)
             itemCounter.text = "3"
+        case .views:
+            itemButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+            itemCounter.text = "6"
         }
         
         self.addSubview(itemCounter)
@@ -104,6 +111,8 @@ class BottomItemView: UIView {
             print("comment tapped")
         case .share:
             print("share tapped")
+        case .views:
+            print("views tapped")
         }
         
     }

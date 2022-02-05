@@ -56,10 +56,12 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         let likesView = BottomItemView(item: .like, position: .first)
         let commentView = BottomItemView(item: .comment, position: .second)
         let shareView = BottomItemView(item: .share, position: .third)
+        let viewsView = BottomItemView(item: .views, position: .fourth)
         
         view.addSubview(likesView)
         view.addSubview(commentView)
         view.addSubview(shareView)
+        view.addSubview(viewsView)
         
         return view
     }
