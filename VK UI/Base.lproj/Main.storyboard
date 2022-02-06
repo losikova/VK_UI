@@ -96,19 +96,30 @@
                                     <action selector="loginButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NWQ-Dg-lVP"/>
                                 </connections>
                             </button>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ryx-cl-kya">
+                                <rect key="frame" x="75" y="505" width="240" height="59"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="59" id="6UC-mX-61e"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.098039215686274508" green="0.098039215686274508" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ryx-cl-kya" firstAttribute="top" secondItem="SJ6-oz-7mK" secondAttribute="bottom" constant="58" id="0gF-Kr-B8h"/>
                             <constraint firstItem="UD6-Ov-VEE" firstAttribute="top" secondItem="brA-Ie-wK0" secondAttribute="bottom" constant="40" id="463-r1-oPQ"/>
                             <constraint firstItem="UD6-Ov-VEE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FF6-1N-Goi"/>
                             <constraint firstItem="SJ6-oz-7mK" firstAttribute="top" secondItem="UD6-Ov-VEE" secondAttribute="bottom" constant="40" id="GNZ-Yb-Fvc"/>
                             <constraint firstItem="SJ6-oz-7mK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HqW-iS-cuj"/>
                             <constraint firstItem="brA-Ie-wK0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="IFb-vj-sAa"/>
                             <constraint firstItem="brA-Ie-wK0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="110" id="ZSP-YK-Nue"/>
+                            <constraint firstItem="ryx-cl-kya" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="axh-6e-6id"/>
+                            <constraint firstItem="ryx-cl-kya" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="pSQ-rB-hfe"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingView" destination="ryx-cl-kya" id="wTN-p0-tUb"/>
                         <outlet property="loginButton" destination="SJ6-oz-7mK" id="bg7-Dx-Zrs"/>
                         <outlet property="loginInput" destination="W1G-i2-PgF" id="5ii-Jt-pJ3"/>
                         <outlet property="loginView" destination="UD6-Ov-VEE" id="xpT-l7-Tja"/>

@@ -15,14 +15,15 @@ class NewsTableViewCell: UITableViewCell {
     
     var avtor = String()
     var date = String()
-    private var cellHeight = CGFloat()
     
     var inscriptionLabel = UILabel()
     
     var photosView = UIImageView()
     
     private var bottomView = UIView(frame: .infinite)
+    
     var delegate: NewsTableViewCellProtocol?
+    private var cellHeight = CGFloat()
     
     override func layoutIfNeeded() {
         setup()
