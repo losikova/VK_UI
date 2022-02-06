@@ -42,8 +42,15 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         view.layer.shadowOffset = CGSize(width: 10, height: 10)
         
         let likesView = BottomItemView(item: .like)
-        
         contentView.addSubview(likesView)
+        likesView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            likesView.topAnchor.constraint(equalTo: photoImageView.bottomAnchor),
+            likesView.rightAnchor.constraint(equalTo: photoImageView.rightAnchor),
+            likesView.widthAnchor.constraint(equalToConstant: 40),
+            likesView.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        likesView.clipsToBounds = true
         
     }
 
