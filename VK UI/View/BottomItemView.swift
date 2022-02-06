@@ -89,16 +89,16 @@ class BottomItemView: UIView {
     @objc func buttonTapped() {
         switch itemKind {
         case .like:
+            likeAnimation(isLiked: self.isLiked)
             if isLiked {
                 itemButton.setImage(UIImage(systemName: "heart"), for: .normal)
-                itemCounter.text = String(Int(itemCounter.text!)! - 1)
                 itemButton.tintColor = UIColor(red: 0.45, green: 0.46, blue: 0.47, alpha: 1.00)
-                isLiked.toggle()
+                self.isLiked.toggle()
+                
             } else {
                 itemButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                itemCounter.text = String(Int(itemCounter.text!)! + 1)
                 itemButton.tintColor = .red
-                isLiked.toggle()
+                self.isLiked.toggle()
             }
         case .comment:
             print("comment tapped")
@@ -110,4 +110,19 @@ class BottomItemView: UIView {
         
     }
     
+}
+
+extension BottomItemView {
+    func likeAnimation(isLiked: Bool) {
+        UIView.transition(with: itemCounter,
+                          duration: 1,
+                          options: .transitionFlipFromTop,
+                          animations: {
+            if isLiked {
+                self.itemCounter.text = String(Int(self.itemCounter.text!)! - 1)
+            } else {
+                self.itemCounter.text = String(Int(self.itemCounter.text!)! + 1)
+            }
+        })
+    }
 }

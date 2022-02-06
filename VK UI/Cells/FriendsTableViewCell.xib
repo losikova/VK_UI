@@ -28,11 +28,23 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yuM-cR-hyR">
+                        <rect key="frame" x="8" y="8" width="96" height="96"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                        <connections>
+                            <action selector="imagePressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="W32-w8-LVo"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="8Hy-bz-zIy" secondAttribute="bottom" constant="8" id="6T2-fq-6at"/>
+                    <constraint firstItem="yuM-cR-hyR" firstAttribute="height" secondItem="bAM-zW-OFF" secondAttribute="height" id="9qc-R4-e8r"/>
+                    <constraint firstItem="yuM-cR-hyR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="AOd-Wa-hod"/>
                     <constraint firstItem="bAM-zW-OFF" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="AUu-yg-VDp"/>
+                    <constraint firstItem="yuM-cR-hyR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="Tg8-Th-WUK"/>
                     <constraint firstItem="8Hy-bz-zIy" firstAttribute="leading" secondItem="bAM-zW-OFF" secondAttribute="trailing" constant="16" id="aJu-VR-Nab"/>
+                    <constraint firstItem="yuM-cR-hyR" firstAttribute="width" secondItem="bAM-zW-OFF" secondAttribute="width" id="bWX-dp-jFm"/>
                     <constraint firstAttribute="trailing" secondItem="8Hy-bz-zIy" secondAttribute="trailing" constant="8" id="eko-41-IpP"/>
                     <constraint firstAttribute="bottom" secondItem="bAM-zW-OFF" secondAttribute="bottom" constant="8" id="f7F-t7-LFZ"/>
                     <constraint firstItem="bAM-zW-OFF" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="nhG-7o-0Po"/>

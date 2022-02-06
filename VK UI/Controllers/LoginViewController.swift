@@ -38,7 +38,7 @@ class LoginViewController: UIViewController {
         if login == "admin" && password == "123456" {
             print("успешная авторизация")
             animateLoading()
-            Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { _ in
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { _ in
                 self.performSegue(withIdentifier: "toTabbar", sender: nil)
             })
     
@@ -123,14 +123,14 @@ private extension LoginViewController {
         let animation = CABasicAnimation(keyPath: "opacity")
         animation.fromValue = 0.1
         animation.toValue = 1
-        animation.duration = 1
+        animation.duration = 0.3
         animation.repeatDuration = 5
         animation.autoreverses = true
         
         loadingView.subviews[1].layer.add(animation, forKey: nil)
-        animation.beginTime = CACurrentMediaTime() + 0.3
+        animation.beginTime = CACurrentMediaTime() + 0.1
         loadingView.subviews[0].layer.add(animation, forKey: nil)
-        animation.beginTime = CACurrentMediaTime() + 0.6
+        animation.beginTime = CACurrentMediaTime() + 0.2
         loadingView.subviews[2].layer.add(animation, forKey: nil)
         
     }
