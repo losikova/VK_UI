@@ -41,7 +41,7 @@ class GalleryCollectionViewCell: UICollectionViewCell {
         view.layer.shadowRadius = 15
         view.layer.shadowOffset = CGSize(width: 10, height: 10)
         
-        let likesView = BottomItemView(item: .like, position: .first)
+        let likesView = BottomItemView(item: .like)
         
         contentView.addSubview(likesView)
         

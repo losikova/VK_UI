@@ -11,14 +11,7 @@ enum bottomViewItem {
     case like
     case comment
     case share
-    case views
-}
-
-enum yPosition {
-    case first
-    case second
-    case third
-    case fourth
+    case views(width: CGFloat)
 }
 
 class BottomItemView: UIView {
@@ -29,19 +22,18 @@ class BottomItemView: UIView {
     private var itemButton = UIButton()
     private var itemCounter = UILabel()
     
-    init(item: bottomViewItem, position: yPosition) {
+    init(item: bottomViewItem) {
         self.itemKind = item
-        
-        switch position {
-        case .first:
+        switch itemKind {
+        case .like:
             super.init(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
-        case .second:
+        case .comment:
             super.init(frame: CGRect(x: 60, y: 0, width: 40, height: 20))
-        case .third:
+        case .share:
             super.init(frame: CGRect(x: 120, y: 0, width: 40, height: 20))
-        case .fourth:
-            super.init(frame: CGRect(x: 350, y: 0, width: 40, height: 20))
-        }
+        case .views(let width):
+            super.init(frame: CGRect(x: width - 40, y: 0, width: 40, height: 20))
+        } 
         
         setup()
     }
@@ -89,6 +81,7 @@ class BottomItemView: UIView {
             itemButton.rightAnchor.constraint(equalTo: itemCounter.leftAnchor)
         ])
         itemButton.clipsToBounds = true
+        
         
         itemButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
