@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol FreindsTableViewCellDelegate: AnyObject {
-    func didTapOn()
-    
-}
-
 class FriendsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var friendsTableViewCell: UIView!

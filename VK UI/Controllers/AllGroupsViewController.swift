@@ -10,10 +10,12 @@ import UIKit
 class AllGroupsViewController: UIViewController {
 
     @IBOutlet weak var allGroupsTableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar! 
     
     let reuseIdentifierGroups = "reuseIdentifierGroups"
     var groupArray = [Group]()
     var selectedGroup: Group?
+    var savedGroupArray = [Group]()
     
     let groupsNames = [
         "Doggy",
@@ -31,10 +33,12 @@ class AllGroupsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fillGroupArray()
+        savedGroupArray = groupArray
         allGroupsTableView.register(UINib(nibName: "FriendsTableViewCell", bundle: nil), forCellReuseIdentifier: reuseIdentifierGroups)
         allGroupsTableView.rowHeight = 70
         allGroupsTableView.delegate = self
         allGroupsTableView.dataSource = self
+        searchBar.delegate = self
     }
     
     
@@ -58,4 +62,15 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
         performSegue(withIdentifier: "addGroup", sender: nil)
     }
     
+}
+
+extension AllGroupsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.groupArray = self.savedGroupArray
+        } else {
+            self.groupArray = groupArray.filter({$0.name.lowercased().contains(searchText.lowercased())})
+        }
+        self.allGroupsTableView.reloadData()
+    }
 }
