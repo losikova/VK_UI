@@ -386,7 +386,13 @@
                             <constraint firstItem="5Po-cd-Rpc" firstAttribute="bottom" secondItem="ayY-iu-J62" secondAttribute="bottom" id="yeM-bX-LQ4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="News" id="4tU-TJ-qK1"/>
+                    <navigationItem key="navigationItem" title="News" id="4tU-TJ-qK1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="E7e-GV-eDM">
+                            <connections>
+                                <action selector="addPressed:" destination="qeb-9H-rNG" id="1ij-jq-Bl4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="newsTableView" destination="ayY-iu-J62" id="IKX-8B-Lgz"/>
                     </connections>
