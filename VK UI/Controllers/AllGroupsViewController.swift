@@ -54,6 +54,10 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = allGroupsTableView.dequeueReusableCell(withIdentifier: reuseIdentifierGroups) as! FriendsTableViewCell
         cell.avatarImageView.layer.cornerRadius = 25
         cell.configure(group: groupArray[indexPath.row])
+        
+        cell.rowNumber = indexPath
+        cell.delegate = self
+        
         return cell
     }
     
@@ -64,7 +68,11 @@ extension AllGroupsViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension AllGroupsViewController: UISearchBarDelegate {
+extension AllGroupsViewController: UISearchBarDelegate, FriendsTableViewCellProtocol {
+    func performSegueAfterTap(row: IndexPath) {
+        tableView(allGroupsTableView, didSelectRowAt: row)
+    }
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
             self.groupArray = self.savedGroupArray

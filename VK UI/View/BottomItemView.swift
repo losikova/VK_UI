@@ -11,14 +11,7 @@ enum bottomViewItem {
     case like
     case comment
     case share
-    case views
-}
-
-enum yPosition {
-    case first
-    case second
-    case third
-    case fourth
+    case views(width: CGFloat)
 }
 
 class BottomItemView: UIView {
@@ -29,19 +22,18 @@ class BottomItemView: UIView {
     private var itemButton = UIButton()
     private var itemCounter = UILabel()
     
-    init(item: bottomViewItem, position: yPosition) {
+    init(item: bottomViewItem) {
         self.itemKind = item
-        
-        switch position {
-        case .first:
+        switch itemKind {
+        case .like:
             super.init(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
-        case .second:
+        case .comment:
             super.init(frame: CGRect(x: 60, y: 0, width: 40, height: 20))
-        case .third:
+        case .share:
             super.init(frame: CGRect(x: 120, y: 0, width: 40, height: 20))
-        case .fourth:
-            super.init(frame: CGRect(x: 350, y: 0, width: 40, height: 20))
-        }
+        case .views(let width):
+            super.init(frame: CGRect(x: width - 40, y: 0, width: 40, height: 20))
+        } 
         
         setup()
     }
@@ -90,22 +82,23 @@ class BottomItemView: UIView {
         ])
         itemButton.clipsToBounds = true
         
+        
         itemButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
     
     @objc func buttonTapped() {
         switch itemKind {
         case .like:
+            likeAnimation(isLiked: self.isLiked)
             if isLiked {
                 itemButton.setImage(UIImage(systemName: "heart"), for: .normal)
-                itemCounter.text = String(Int(itemCounter.text!)! - 1)
                 itemButton.tintColor = UIColor(red: 0.45, green: 0.46, blue: 0.47, alpha: 1.00)
-                isLiked.toggle()
+                self.isLiked.toggle()
+                
             } else {
                 itemButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-                itemCounter.text = String(Int(itemCounter.text!)! + 1)
                 itemButton.tintColor = .red
-                isLiked.toggle()
+                self.isLiked.toggle()
             }
         case .comment:
             print("comment tapped")
@@ -117,4 +110,19 @@ class BottomItemView: UIView {
         
     }
     
+}
+
+extension BottomItemView {
+    func likeAnimation(isLiked: Bool) {
+        UIView.transition(with: itemCounter,
+                          duration: 1,
+                          options: .transitionFlipFromTop,
+                          animations: {
+            if isLiked {
+                self.itemCounter.text = String(Int(self.itemCounter.text!)! - 1)
+            } else {
+                self.itemCounter.text = String(Int(self.itemCounter.text!)! + 1)
+            }
+        })
+    }
 }

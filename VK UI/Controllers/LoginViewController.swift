@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet var loginView: UIView!
     @IBOutlet weak var passwordEye: UIButton!
+    @IBOutlet weak var loadingView: UIView!
     
     var eyeSlashed = true
     
@@ -24,6 +25,7 @@ class LoginViewController: UIViewController {
         self.view.addGestureRecognizer(tapRecognizer)
         
         castomizeView()
+        setLoadingView()
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
@@ -31,11 +33,15 @@ class LoginViewController: UIViewController {
         let login = loginInput.text!
         // Получаем текст-пароль
         let password = passwordInput.text!
-        
+
         // Проверяем, верны ли они
         if login == "admin" && password == "123456" {
             print("успешная авторизация")
-            performSegue(withIdentifier: "toTabbar", sender: nil)
+            animateLoading()
+            Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { _ in
+                self.performSegue(withIdentifier: "toTabbar", sender: nil)
+            })
+    
         } else {
             loginError()
             print("неуспешная авторизация")
@@ -100,6 +106,7 @@ private extension LoginViewController {
         loginButton.layer.cornerRadius = 10
         loginButton.isEnabled = false
         passwordEye.isHidden = true
+        
     }
     
     func inputCheck() {
@@ -108,6 +115,69 @@ private extension LoginViewController {
         } else {
             loginButton.isEnabled = false
         }
+    }
+    
+    func animateLoading() {
+        loadingView.isHidden = false
+        
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.fromValue = 0.1
+        animation.toValue = 1
+        animation.duration = 0.3
+        animation.repeatDuration = 5
+        animation.autoreverses = true
+        
+        loadingView.subviews[1].layer.add(animation, forKey: nil)
+        animation.beginTime = CACurrentMediaTime() + 0.1
+        loadingView.subviews[0].layer.add(animation, forKey: nil)
+        animation.beginTime = CACurrentMediaTime() + 0.2
+        loadingView.subviews[2].layer.add(animation, forKey: nil)
+        
+    }
+    
+    func setLoadingView() {
+        loadingView.backgroundColor = .clear
+        let dot2 = UIView()
+        loadingView.addSubview(dot2)
+        dot2.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dot2.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor),
+            dot2.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor),
+            dot2.widthAnchor.constraint(equalToConstant: 20),
+            dot2.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        dot2.clipsToBounds = true
+        dot2.backgroundColor = .black
+        dot2.layoutIfNeeded()
+        dot2.layer.cornerRadius = dot2.bounds.height / 2
+        
+        let dot1 = UIView()
+        loadingView.addSubview(dot1)
+        dot1.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dot1.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor, constant: -30),
+            dot1.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor),
+            dot1.widthAnchor.constraint(equalToConstant: 20),
+            dot1.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        dot1.clipsToBounds = true
+        dot1.backgroundColor = .black
+        dot1.layoutIfNeeded()
+        dot1.layer.cornerRadius = dot1.bounds.height / 2
+        
+        let dot3 = UIView()
+        loadingView.addSubview(dot3)
+        dot3.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            dot3.centerXAnchor.constraint(equalTo: loadingView.centerXAnchor, constant: 30),
+            dot3.centerYAnchor.constraint(equalTo: loadingView.centerYAnchor),
+            dot3.widthAnchor.constraint(equalToConstant: 20),
+            dot3.heightAnchor.constraint(equalToConstant: 20)
+        ])
+        dot3.clipsToBounds = true
+        dot3.backgroundColor = .black
+        dot3.layoutIfNeeded()
+        dot3.layer.cornerRadius = dot3.bounds.height / 2
     }
 }
 

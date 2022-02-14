@@ -7,23 +7,28 @@
 
 import UIKit
 
+protocol FriendsTableViewCellProtocol: AnyObject {
+    func performSegueAfterTap(row: IndexPath)
+}
+
 class FriendsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var friendsTableViewCell: UIView!
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var delegate: FriendsTableViewCellProtocol?
+    var rowNumber = IndexPath()
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         avatarImageView.image = nil
         nameLabel.text = nil
-        addAvatarView(image: nil)
     }
     
     func configure(friend: User) {
         avatarImageView.image = friend.avatar
         nameLabel.text = friend.name
-        addAvatarView(image: friend.avatar)
     }
     
     func configure(group: Group) {
@@ -33,44 +38,38 @@ class FriendsTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
     }
     
-}
-
-extension FriendsTableViewCell {
-    
-    func addAvatarView(image: UIImage?) {
-//        let cellWidth = friendsTableViewCell.frame.width
-//        let cellHeight = friendsTableViewCell.frame.height
-//        let avatarImage = AvatarView(frame: CGRect(x: cellWidth - 66, y: 8, width: 50, height: 50))
-//        let imageView = UIImageView.init(image: image)
-//
-//        imageView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-//        imageView.contentMode = .scaleAspectFill
-//        imageView.layer.cornerRadius = 25
-//        imageView.clipsToBounds = true
-//        avatarImage.layer.shadowColor = UIColor.black.cgColor
-//        avatarImage.layer.shadowOpacity = 1
-//        avatarImage.layer.shadowRadius = 25
-//        avatarImage.layer.shadowOffset = CGSize.zero
-////        avatarImage.layer.shadowColor = UIColor.black.cgColor
-////        avatarImage.layer.shadowRadius = 25
-////        avatarImage.layer.shadowOpacity = 0.5
-//
-//        avatarImage.clipsToBounds = true
-//        avatarImage.addSubview(imageView)
-//        friendsTableViewCell.addSubview(avatarImage)
-//
-////        avatarImage = AvatarView(frame: CGRect(x: width - 66, y: 10, width: 50, height: 50))
+    @IBAction func imagePressed(_ sender: UIButton) {
+        let scale: CGFloat = 20
+        let frame = avatarImageView.frame 
         
+        UIView.animate(withDuration: 1,
+                       delay: 0,
+                       usingSpringWithDamping: 0.3,
+                       initialSpringVelocity: 0.1,
+                       options: [],
+                       animations: {
+            self.avatarImageView.frame = CGRect(x: frame.origin.x - scale/2, y: frame.origin.y - scale/2, width: frame.width + scale, height: frame.height + scale)
+        },
+                       completion: {_ in
+            self.delegate?.performSegueAfterTap(row: self.rowNumber)
+        })
         
     }
     
 }
+
+extension FriendsTableViewCell: FriendsTableViewCellProtocol {
+    func performSegueAfterTap(row: IndexPath) {
+        delegate?.performSegueAfterTap(row: row)
+    }
+    
+    
+}
+

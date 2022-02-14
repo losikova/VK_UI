@@ -20,11 +20,16 @@ extension FriendsViewController: UITableViewDataSource {
         let cell = friendsTableView.dequeueReusableCell(withIdentifier: reusableIdentifierFriends, for: indexPath) as! FriendsTableViewCell
         cell.avatarImageView.layer.cornerRadius = 25
         cell.configure(friend: friendsBySection(letter: sectionLetters[indexPath.section])[indexPath.row])
+        cell.rowNumber = indexPath
+        
+        cell.delegate = self
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let section = friendsBySection(letter: sectionLetters[indexPath.section])
+        
         performSegue(withIdentifier: friendsCellPressedSegue, sender: section[indexPath.row])
     }
     
