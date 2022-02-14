@@ -10,7 +10,7 @@ import UIKit
 
 class vkJSON {
     func reguest(complition: (([PostsJSON]) -> ())?) {
-        guard let httpURL = URL(string: "https://jsonplaceholder.typicode.com/posts") else {return nil}
+        guard let httpURL = URL(string: "https://jsonplaceholder.typicode.com/posts") else {return}
         let httpSession = URLSession.shared.dataTask(with: httpURL) { data, response, error in
             if let error = error {
                 print(error)
