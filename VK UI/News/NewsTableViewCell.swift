@@ -15,11 +15,8 @@ class NewsTableViewCell: UITableViewCell {
     
     var avtor = String()
     var date = String()
-    
     var inscriptionLabel = UILabel()
-    
     var photosView = UIImageView()
-    
     private var bottomView = UIView(frame: .infinite)
     
     var delegate: NewsTableViewCellProtocol?
